@@ -167,7 +167,6 @@ var Grid = function (_w, _h) {
 
         if (this.noteStates[noteIndex] > 0) {
           fill(this.colorArray[noteIndex]);
-          //ellipse(posX, posY, camera.width / 50, camera.height / 7); // *** change shape of point
           image(img,posX, posY, camera.width / 10, camera.height / 10);// replaced shape of point with image
         }
       }

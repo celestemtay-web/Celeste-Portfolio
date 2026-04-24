@@ -1,4 +1,4 @@
-/* DN1010 Experimental Interaction, Ashley Hi 2026
+/* DN1010 Experimental Interaction, Celeste Tay 2026
  * Week 7 - Style Transfer
  * Pix2Pix
  * Model: https://github.com/dongphilyoo/pix2pix-ml5-demo
