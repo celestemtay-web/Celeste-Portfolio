@@ -4,8 +4,8 @@
  */
 
 var camera;
-var prevImg;
-var currImg;
+var prevImg;// motion detection using frame differencing
+var currImg;// Code compares current frame in webcam to the previous frame
 var diffImg;
 var spotImg;
 var threshold = 0.3; //Increased sensitivity (decimal between 0 - 1)
@@ -18,7 +18,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight); // makes video the same size as the window 
   pixelDensity(1);
   camera = createCapture(VIDEO, { flipped: true });
   camera.hide();
@@ -31,8 +31,8 @@ function draw() {
   image(camera, 0, 0, 1280, 720);
   camera.loadPixels();
   
-
-  var smallW = camera.width / 4;
+// creating small threshold and greyscale videos on the right of the main video feed
+  var smallW = camera.width / 4; // downscales video so the program runs smoothly 
   var smallH = camera.height / 4;
 
   currImg = createImage(smallW, smallH);
@@ -100,11 +100,14 @@ function draw() {
   grid.update(diffImg);
 }
 
+// clicking the mouse changes the threshold values
 function mousePressed() {
   threshold = map(mouseX, 0, 1280, 0, 1);
   console.log(threshold);
 }
 
+// Instead of drawing on every single pixel, code uses a grid to organise its interaction
+// when motion is detected at a specific coordinate, the corresponding "note" (or cell) becomes active (array is set to one)
 var Grid = function (_w, _h) {
   this.diffImg = 0;
   this.noteWidth = 25; // increased spacing between each point so the hachiwares do not overlap
@@ -121,13 +124,11 @@ var Grid = function (_w, _h) {
 
   for (var i = 0; i < this.arrayLength; i++) {
     this.colorArray.push(
-      //color(97,27,53, 150) // *** set colours of the points
-      // Created gradient 
-      lerpColor(color(97,27,53, 150), color(20, 51, 11, 80), 0.0002 * i)
+      lerpColor(color(97,27,53, 150), color(20, 51, 11, 80), 0.0002 * i) //creates a gradient, although in this case it is note used
     );
   }
 
-  this.update = function (_img) {
+  this.update = function (_img) { // puts hachiware images in the active grid location, instead of drawing the pizel 
     this.diffImg = _img;
     this.diffImg.loadPixels();
 
@@ -148,7 +149,7 @@ var Grid = function (_w, _h) {
     }
 
     for (var i = 0; i < this.arrayLength; i++) {
-      this.noteStates[i] -= 0.05; // made the points disappear more quickly 
+      this.noteStates[i] -= 0.05; // made the hachiwares disappear more quickly 
       this.noteStates[i] = constrain(this.noteStates[i], 0, 1);
     }
 
