@@ -1,5 +1,5 @@
 /*
-  DN1010 Experimental Interaction, Ashley Hi 2026
+  DN1010 Experimental Interaction, Celeste Tay 2026
   Week 12 - Physical / Remote Computing
   ESP32-C3 Sensor Servo Example
   When distance is less than 10cm, ultrasonic sensor triggers servo to turn 180º.
@@ -15,7 +15,7 @@
 // ====== Set HC-SR04 Sensor ======
 #define TRIG_PIN  3
 #define ECHO_PIN  4
-#define DISTANCE_THRESHOLD  10 // *** edit the sensor trigger distance here (in cm)
+#define DISTANCE_THRESHOLD  10 // sensor trigger distance is 10 cm
 
 // ====== Create Servo Objects ======
 Servo servo;

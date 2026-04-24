@@ -1,5 +1,5 @@
 /*
-  DN1010 Experimental Interaction, Ashley Hi 2026
+  DN1010 Experimental Interaction, Celeste Tay 2026
   Week 12 - Physical / Remote Computing
   ESP32-C3 Server LED Control
   Turn on/off built-in LED over web server.
@@ -10,8 +10,8 @@
 #include <WiFi.h>
 
 // ====== Network Credentials ======
-const char* ssid     = "ESP32-Access-Celeste"; // *** edit AP name here
-const char* password = "123456789";          // *** edit password here
+const char* ssid     = "ESP32-Access-Celeste"; //  AP name 
+const char* password = "123456789";          // edit password 
 
 // ====== Network Settings ======
 WiFiServer server(80);

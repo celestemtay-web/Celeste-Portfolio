@@ -1,5 +1,5 @@
 /*
-  DN1010 Experimental Interaction, Ashley Hi 2026
+  DN1010 Experimental Interaction, Celeste Tay 2026
   Week 11 - Physical Computing
   ESP32-C3 OLED Example
   Displays text on the 0.42" built-in OLED screen.
